@@ -44,18 +44,19 @@ public class King extends Chessmen {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (getColor() == Color.WHITE
-                        && chessBoard.getChessmen(i, j).getColor() == Color.BLACK
-                        && chessBoard.getChessmen(i, j).checkingValidMoves(newX, newY, chessBoard)
-                        ||
-                        getColor() == Color.BLACK
-                                && chessBoard.getChessmen(i, j).getColor() == Color.WHITE
-                                && chessBoard.getChessmen(i, j).checkingValidMoves(newX, newY, chessBoard)) {
-                    return false;
+                Chessmen chessman = chessBoard.getChessmen(i, j);
+                if (chessman.getColor() !=getColor() && chessman.getColor()!= Color.EMPTYFIELD) {
+                    for (int k = 0; k < 8; k++) {
+                        if (chessman.checkingValidMoves(newX, newY, chessBoard) == true) {
+                            System.out.println("Invalid move: the destination square is under attack.");
+                            return false;
+                        }
+                    }
                 }
             }
         }
-
         return true;
     }
+
 }
+

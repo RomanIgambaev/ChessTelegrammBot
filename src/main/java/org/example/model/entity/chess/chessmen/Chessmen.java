@@ -22,10 +22,10 @@ public abstract class Chessmen {
 
     public void move(int newX, int newY, ChessBoard chessBoard) {
         if (checkingValidMoves(newX, newY, chessBoard)) {
+            chessBoard.getBoard()[newX][newY] = this;
             chessBoard.getBoard()[getX()][getY()] = new EmptyField(getX(), getY());
             setX(newX);
             setY(newY);
-            chessBoard.getBoard()[newX][newY] = this;
         }
     }
 }
