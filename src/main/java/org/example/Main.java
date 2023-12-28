@@ -1,0 +1,22 @@
+package org.example;
+
+import org.example.handlers.TelegramRequestHandler;
+import org.example.model.entity.chess.chessmen.Chessmen;
+import org.example.model.entity.chess.chessmen.King;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+
+public class Main {
+    public static void main(String[] args) {
+
+        try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+            TelegramRequestHandler bot = new TelegramRequestHandler();
+            telegramBotsApi.registerBot(bot);
+            bot.init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}

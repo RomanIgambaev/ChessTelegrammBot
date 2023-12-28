@@ -1,0 +1,8 @@
+2023-12-28 00:56:01,404	ERROR	org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)	Index 7 out of bounds for length 7
+java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7
+	at org.example.model.entity.chess.ChessBoard.originallyPlaceChessman(ChessBoard.java:26)
+	at org.example.model.entity.chess.ChessBoard.<init>(ChessBoard.java:14)
+	at org.example.handlers.TelegramRequestHandler.onUpdateReceived(TelegramRequestHandler.java:59)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:312)
